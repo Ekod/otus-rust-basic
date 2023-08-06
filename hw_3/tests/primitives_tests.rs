@@ -1,9 +1,5 @@
 use hw_3::math::primitives::{
-    default_signed_counter,
-    default_unsigned_counter,
-    next_signed,
-    next_unsigned,
-    prev_signed,
+    default_signed_counter, default_unsigned_counter, next_signed, next_unsigned, prev_signed,
 };
 
 #[cfg(test)]

@@ -1,4 +1,4 @@
-use hw_3::math::tuple::{default_pair, pair_vector_sum, pair_scalar_sum};
+use hw_3::math::tuple::{default_pair, pair_scalar_sum, pair_vector_sum};
 
 #[cfg(test)]
 mod tuple_tests {

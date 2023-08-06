@@ -10,7 +10,7 @@ pub fn get_tuple_elems(tup: &mut TupI32, get_last_elem: bool) -> &mut i32 {
 }
 
 pub fn get_slice_nth_elem(slc: &mut SlcI32, n: usize) -> Option<&mut i32> {
-    if slc.is_empty(){
+    if slc.is_empty() {
         return None;
     }
 
@@ -24,7 +24,7 @@ pub fn get_slice_nth_elem(slc: &mut SlcI32, n: usize) -> Option<&mut i32> {
 }
 
 pub fn get_slice_nth_elem_from_end(slc: &SlcI32, n: usize) -> Option<&i32> {
-    if slc.is_empty(){
+    if slc.is_empty() {
         return None;
     }
 
@@ -177,7 +177,7 @@ mod tests {
         let vec2 = Vec::from([1, 2, 3, 4, 5]);
         let vec2_ref = &vec2;
 
-        let expected = Vec::from( [&[1][..], &[2][..], &[3][..], &[4, 5][..]]);
+        let expected = Vec::from([&[1][..], &[2][..], &[3][..], &[4, 5][..]]);
         let result = get_slices_array_from_slice(vec2_ref);
 
         assert_eq!(expected, result);
