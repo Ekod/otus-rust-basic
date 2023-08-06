@@ -1,4 +1,4 @@
-trait SomeTrait: Default + PartialEq<Self> {
+trait Collection: Default + PartialEq<Self> {
     fn get_item(&self, item: Item) -> f64;
     fn set_item(&mut self, item: Item, value: f64);
 
@@ -29,7 +29,7 @@ impl Item {
 #[derive(Default, PartialEq)]
 pub struct Tuple(u32, f32, f64);
 
-impl SomeTrait for Tuple {
+impl Collection for Tuple {
     fn get_item(&self, item: Item) -> f64 {
         match item {
             Item::First => self.0 as _,
@@ -50,7 +50,7 @@ impl SomeTrait for Tuple {
 #[derive(Default, PartialEq)]
 pub struct Array([f64; 3]);
 
-impl SomeTrait for Array {
+impl Collection for Array {
     fn get_item(&self, item: Item) -> f64 {
         self.0[item.index()]
     }
@@ -63,19 +63,19 @@ impl SomeTrait for Array {
 mod tests {
     use super::*;
 
-    fn generic_sum<T: SomeTrait>(item: &T) -> f64 {
+    fn generic_sum<T: Collection>(item: &T) -> f64 {
         item.sum()
     }
 
-    fn generic_is_default<T: SomeTrait>(item: &T) -> bool {
+    fn generic_is_default<T: Collection>(item: &T) -> bool {
         item.is_default()
     }
 
-    fn get_item(t: &impl SomeTrait, item: Item) -> f64 {
+    fn get_item(t: &impl Collection, item: Item) -> f64 {
         t.get_item(item)
     }
 
-    fn set_item(t: &mut impl SomeTrait, item: Item, value: f64) {
+    fn set_item(t: &mut impl Collection, item: Item, value: f64) {
         t.set_item(item, value);
     }
 
