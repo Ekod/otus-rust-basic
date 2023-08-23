@@ -1,0 +1,19 @@
+[package]
+name = "hw_8"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "hw_8"
+path = "src/main.rs"
+
+[lib]
+name = "proc_macros"
+path = "src/lib.rs"
+proc-macro = true
+
+[dependencies]
+syn = "2.0.28"
+quote = "1.0.32"
+proc-macro2 = "1.0.66"
